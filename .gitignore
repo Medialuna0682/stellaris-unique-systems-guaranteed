@@ -1,0 +1,2 @@
+# Local backup files — git now provides version history, so these aren't tracked.
+*.bak
