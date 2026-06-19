@@ -8,7 +8,7 @@ A Stellaris **Galaxy Generation** mod that makes the game's unique / special sta
 
 Stellaris seeds many one-off "unique" systems (base game + DLCs) behind a reduced `spawn_chance` / galaxy-size-scaled `scaled_spawn_chance`, so any given galaxy only rolls some of them. This mod forces those systems' spawn gate to **100%** (`spawn_chance = 100`), keeping `max_instances = 1`, so every system it covers is guaranteed to appear exactly once.
 
-Coverage spans the base game and DLC system sets — Ancient Relics, Astral Planes, Distant Stars, Federations, Leviathans, The Machine Age, MegaCorp, Overlord, Paragon, Utopia, plus the pre-FTL / special / unique sets (~89 systems). It also overrides the Ancient Relics `ancrel.12050` event to force **both** special cluster systems (Ultima Vigilis + the First Contact "Chosen" cluster) to spawn, instead of vanilla's 2:1:1 nothing / either / or roll.
+Coverage spans the base game and DLC system sets — Ancient Relics, Astral Planes, Distant Stars, Federations, Leviathans, The Machine Age, MegaCorp, Overlord, Paragon, Utopia, plus the pre-FTL / special / unique sets (~89 systems). It also overrides the Ancient Relics `ancrel.12050` event to force **both** special cluster systems (Ultima Vigilis + the First Contact "Chosen" cluster) to spawn — on separate rim systems so they don't crowd each other — instead of vanilla's 2:1:1 nothing / either / or roll.
 
 ## Requirements & usage
 
