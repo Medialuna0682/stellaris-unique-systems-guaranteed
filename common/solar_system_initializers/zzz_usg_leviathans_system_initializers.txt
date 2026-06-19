@@ -1,12 +1,10 @@
-# Game will first pick an initializer using usage_odds, but only use it if it passes the spawn_chance check
-# Even if it fails the spawn_chance check it will still count towards the initializer's max_instances
+# Unique Systems Guaranteed — per-key guarantee override (4.4 re-architecture).
+# Redefines ONLY the unique/special galaxy-generation systems this mod guarantees,
+# forcing spawn_chance = 100 (replacing vanilla's spawn_chance / scaled_spawn_chance gate).
+# Every other system — including ones added by future patches/DLCs — passes through
+# from current vanilla untouched. Loads after vanilla (zzz_ prefix) to override by key.
 
 @base_moon_distance = 10
-
-# Leviathans DLC System Initializers
-
-### ENCLAVES ###
-# Artists
 guardians_artist_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -58,7 +56,7 @@ guardians_artist_init_01 = {
 		size = 25
 
 		init_effect = {
-			set_planet_flag = guardians_artists_planet
+			set_carrier_flag = guardians_artists_planet
 			create_species = {
 				name = random
 				class = random_non_machine
@@ -197,8 +195,6 @@ guardians_artist_init_01 = {
 		###
 	}
 }
-
-# Artists II
 guardians_artist_init_02 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -219,7 +215,7 @@ guardians_artist_init_02 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_artists_system enclave }
 
@@ -249,7 +245,7 @@ guardians_artist_init_02 = {
 		size = 25
 
 		init_effect = {
-			set_planet_flag = guardians_artists_planet
+			set_carrier_flag = guardians_artists_planet
 			create_species = {
 				name = random
 				class = random_non_machine
@@ -388,8 +384,6 @@ guardians_artist_init_02 = {
 		###
 	}
 }
-
-# Artists III
 guardians_artist_init_03 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -410,7 +404,7 @@ guardians_artist_init_03 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_artists_system enclave }
 
@@ -440,7 +434,7 @@ guardians_artist_init_03 = {
 		size = 25
 
 		init_effect = {
-			set_planet_flag = guardians_artists_planet
+			set_carrier_flag = guardians_artists_planet
 			create_species = {
 				name = random
 				class = random_non_machine
@@ -579,8 +573,6 @@ guardians_artist_init_03 = {
 		###
 	}
 }
-
-# Curators I
 guardians_curator_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -606,7 +598,7 @@ guardians_curator_init_01 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_curators_system enclave }
 
@@ -730,8 +722,6 @@ guardians_curator_init_01 = {
 		size = { min = 10 max = 25 }
 	}
 }
-
-# Curators II
 guardians_curator_init_02 = {
 	class = sc_black_hole
 	usage = misc_system_init
@@ -876,8 +866,6 @@ guardians_curator_init_02 = {
 		}
 	}
 }
-
-# Curators III
 guardians_curator_init_03 = {
 	class = sc_pulsar
 	usage = misc_system_init
@@ -903,7 +891,7 @@ guardians_curator_init_03 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_curators_system enclave }
 
@@ -1050,8 +1038,6 @@ guardians_curator_init_03 = {
 		size = 40
 	}
 }
-
-# Traders
 guardians_trader_init_01 = {
 	class = "rl_standard_stars"
 
@@ -1109,7 +1095,7 @@ guardians_trader_init_01 = {
 					}
 				}
 				save_event_target_as = GuardiansTradersPlanet
-				set_planet_flag = guardians_traders_planet
+				set_carrier_flag = guardians_traders_planet
 				create_species = {
 					name = NAME_Xuri
 					plural = NAME_Xuri_plural
@@ -1194,8 +1180,6 @@ guardians_trader_init_01 = {
 		}
 	}
 }
-
-# Traders
 guardians_trader_init_02 = {
 	class = "rl_standard_stars"
 
@@ -1217,7 +1201,7 @@ guardians_trader_init_02 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_traders_system enclave }
 
@@ -1253,7 +1237,7 @@ guardians_trader_init_02 = {
 					}
 				}
 				save_event_target_as = GuardiansTradersPlanet
-				set_planet_flag = guardians_traders_planet
+				set_carrier_flag = guardians_traders_planet
 				create_species = {
 					name = "NAME_Riggan"
 					plural = NAME_Riggan_plural
@@ -1339,8 +1323,6 @@ guardians_trader_init_02 = {
 		}
 	}
 }
-
-# Traders
 guardians_trader_init_03 = {
 	class = "rl_standard_stars"
 
@@ -1362,7 +1344,7 @@ guardians_trader_init_03 = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	flags = { guardians_traders_system enclave }
 
@@ -1398,7 +1380,7 @@ guardians_trader_init_03 = {
 					}
 				}
 				save_event_target_as = GuardiansTradersPlanet
-				set_planet_flag = guardians_traders_planet
+				set_carrier_flag = guardians_traders_planet
 				create_species = {
 					name = "NAME_Muutagan"
 					plural = NAME_Muutagan_plural
@@ -1484,11 +1466,6 @@ guardians_trader_init_03 = {
 		}
 	}
 }
-
-### END OF: ENCLAVES ###
-
-### GUARDIANS SYSTEM ###
-# Stellarites
 guardians_init_stellarites = {
 	class = rl_dwarf_stars
 	usage = misc_system_init
@@ -1512,9 +1489,9 @@ guardians_init_stellarites = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
-	flags = { guardians_stellarite_system guardian hostile_system }
+	flags = { guardians_stellarite_system guardian hostile_system antique_threat_system }
 
 	planet = {
 		count = 1
@@ -1574,8 +1551,6 @@ guardians_init_stellarites = {
 		}
 	}
 }
-
-### Ether Drake
 guardians_init_dragon = {
 	class = sc_k
 
@@ -1600,9 +1575,9 @@ guardians_init_dragon = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
-	flags = { guardians_dragon_system guardian hostile_system }
+	flags = { guardians_dragon_system guardian hostile_system antique_threat_system }
 
 	planet = {
 		count = 1
@@ -1625,7 +1600,7 @@ guardians_init_dragon = {
 
 		init_effect = {
 			set_name = "NAME_Dragons_Hoard"
-			set_planet_flag = hoard_planet
+			set_carrier_flag = hoard_planet
 			save_global_event_target_as = guardian_dragon_planet
 			prevent_anomaly = yes
 			set_deposit = d_guardian_dragon_hoard
@@ -1745,13 +1720,11 @@ guardians_init_dragon = {
 		}
 	}
 }
-
-# Dimensional Horror
 guardians_init_horror = {
 	class = "sc_black_hole"
 	usage = misc_system_init
 
-	flags = { guardians_horror_system guardian hostile_system }
+	flags = { guardians_horror_system guardian hostile_system antique_threat_system }
 
 	usage_odds = {
 		base = 0
@@ -1773,7 +1746,7 @@ guardians_init_horror = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	planet = {
 		count = 1
@@ -1784,8 +1757,6 @@ guardians_init_horror = {
 		has_ring = no
 	}
 }
-
-# Automated Dreadnought
 guardians_init_dreadnought = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -1794,7 +1765,7 @@ guardians_init_dreadnought = {
 		radius = 50
 	}
 
-	flags = { guardians_dreadnought_system guardian hostile_system }
+	flags = { guardians_dreadnought_system guardian hostile_system antique_threat_system }
 
 	usage_odds = {
 		base = 0
@@ -1816,7 +1787,7 @@ guardians_init_dreadnought = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	planet = {
 		count = 1
@@ -1892,7 +1863,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.1
-									has_planet_flag = patrol_1
+									has_carrier_flag = patrol_1
 								}
 								found_planet = {
 									move_to = this
@@ -1905,7 +1876,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.2
-									has_planet_flag = patrol_2
+									has_carrier_flag = patrol_2
 								}
 								found_planet = {
 									move_to = this
@@ -1918,7 +1889,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.3
-									has_planet_flag = patrol_3
+									has_carrier_flag = patrol_3
 								}
 								found_planet = {
 									move_to = this
@@ -1931,7 +1902,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.4
-									has_planet_flag = patrol_4
+									has_carrier_flag = patrol_4
 								}
 								found_planet = {
 									move_to = this
@@ -1944,7 +1915,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.5
-									has_planet_flag = patrol_5
+									has_carrier_flag = patrol_5
 								}
 								found_planet = {
 									move_to = this
@@ -1957,7 +1928,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.6
-									has_planet_flag = patrol_6
+									has_carrier_flag = patrol_6
 								}
 								found_planet = {
 									move_to = this
@@ -1970,7 +1941,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.7
-									has_planet_flag = patrol_7
+									has_carrier_flag = patrol_7
 								}
 								found_planet = {
 									move_to = this
@@ -1983,7 +1954,7 @@ guardians_init_dreadnought = {
 							find_closest_planet = {
 								trigger = {
 									id = dreadnought.patrol.8
-									has_planet_flag = patrol_8
+									has_carrier_flag = patrol_8
 								}
 								found_planet = {
 									move_to = this
@@ -2110,8 +2081,6 @@ guardians_init_dreadnought = {
 		flags = { patrol_8 }
 	}
 }
-
-# Hive
 guardians_init_hive = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -2120,7 +2089,7 @@ guardians_init_hive = {
 		radius = 160
 	}
 
-	flags = { guardians_hive_system guardian hostile_system }
+	flags = { guardians_hive_system guardian hostile_system antique_threat_system }
 
 	usage_odds = {
 		base = 0
@@ -2138,7 +2107,7 @@ guardians_init_hive = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
 	planet = {
 		count = 1
@@ -2285,8 +2254,6 @@ guardians_init_hive = {
 		orbit_angle = { min = 90 max = 270 }
 	}
 }
-
-#Technosphere
 guardians_init_technosphere = {
 	name = "NAME_Gargantua"
 	class = sc_black_hole
@@ -2307,9 +2274,9 @@ guardians_init_technosphere = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
-	flags = { guardians_technosphere_system guardian hostile_system }
+	flags = { guardians_technosphere_system guardian hostile_system antique_threat_system }
 
 	planet = {
 		count = 1
@@ -2393,8 +2360,6 @@ guardians_init_technosphere = {
 		}
 	}
 }
-
-### Enigmatic Fortress
 guardians_init_fortress = {
 	class = sc_a
 
@@ -2419,9 +2384,9 @@ guardians_init_fortress = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
-	flags = { guardians_fortress_system guardian enigmatic_system hostile_system }
+	flags = { guardians_fortress_system guardian enigmatic_system hostile_system antique_threat_system }
 
 	planet = {
 		count = 1
@@ -2633,8 +2598,6 @@ guardians_init_fortress = {
 
 	}
 }
-
-# Wraith
 guardians_init_wraith = {
 	class = "sc_pulsar"
 
@@ -2655,9 +2618,9 @@ guardians_init_wraith = {
 	}
 
 	max_instances = 1
-	spawn_chance = 100	# scales by galaxy size (1000 stars = 10x base)
+	spawn_chance = 100
 
-	flags = { guardians_wraith_system guardian hostile_system }
+	flags = { guardians_wraith_system guardian hostile_system antique_threat_system }
 
 	planet = {
 		count = 1

@@ -1,8 +1,12 @@
+# Unique Systems Guaranteed — per-key guarantee override (4.4 re-architecture).
+# Redefines ONLY the unique/special galaxy-generation systems this mod guarantees,
+# forcing spawn_chance = 100 (replacing vanilla's spawn_chance / scaled_spawn_chance gate).
+# Every other system — including ones added by future patches/DLCs — passes through
+# from current vanilla untouched. Loads after vanilla (zzz_ prefix) to override by key.
+
 @distance = 50
 @base_moon_distance = 10
-@unique_system_spawn_chance = 100
-
-# Federation's End - Black Hole with habitats inhabited by primitives
+@unique_system_spawn_chance = 25
 unique_system_initializer_01 = {
 	name = "NAME_Unique_System_1"
 
@@ -15,13 +19,13 @@ unique_system_initializer_01 = {
 		inline_script = "solar_system_initializers/initializer_modifiers_habitable_world_systems"
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 	primitive_system = yes # usage odds modified by primitives setup slider
 
 	max_instances = 1
 	primitive_system = yes
 
-	flags = { unique_system primitive_system federation_end }
+	flags = { unique_system primitive_system federation_end galactic_landmark_system }
 
 	planet = {
 		class = star
@@ -90,8 +94,8 @@ unique_system_initializer_01 = {
 						}
 					}
 					generate_late_pre_ftls_on_planet = yes
-					set_planet_flag = habitat
-					set_planet_flag = habitat_level_1
+					set_carrier_flag = habitat
+					set_carrier_flag = habitat_level_1
 					add_district = district_hab_housing
 					add_district = district_hab_housing
 					add_deposit = d_arcane_replicator
@@ -133,8 +137,8 @@ unique_system_initializer_01 = {
 						}
 					}
 					generate_late_pre_ftls_on_planet = yes
-					set_planet_flag = habitat
-					set_planet_flag = habitat_level_1
+					set_carrier_flag = habitat
+					set_carrier_flag = habitat_level_1
 					add_district = district_hab_housing
 					add_district = district_hab_housing
 					add_deposit = d_arcane_replicator
@@ -147,8 +151,6 @@ unique_system_initializer_01 = {
 		}
 	}
 }
-
-# Larionessi Refuge - Neutron Star with a Relic planet and arc site
 unique_system_initializer_02 = {
 	name = "NAME_Unique_System_2"
 
@@ -161,7 +163,7 @@ unique_system_initializer_02 = {
 		inline_script = "solar_system_initializers/initializer_modifiers_habitable_world_systems"
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -274,8 +276,6 @@ unique_system_initializer_02 = {
 		}
 	}
 }
-
-# Zevox - Shrouded planet and arc site nearby
 unique_system_initializer_03 = {
 	name = "NAME_Unique_System_3"
 
@@ -295,7 +295,7 @@ unique_system_initializer_03 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -488,8 +488,6 @@ unique_system_initializer_03 = {
 		}
 	}
 }
-
-# Fehnrax's Stand - Ancient Battlefield 1
 unique_system_initializer_04 = {
 	name = "NAME_Unique_System_4"
 
@@ -509,7 +507,7 @@ unique_system_initializer_04 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -678,8 +676,6 @@ unique_system_initializer_04 = {
 		}
 	}
 }
-
-# Zhanrox's Rest - Ancient Battlefield 2
 unique_system_initializer_05 = {
 	name = "NAME_Unique_System_5"
 
@@ -699,7 +695,7 @@ unique_system_initializer_05 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -925,8 +921,6 @@ unique_system_initializer_05 = {
 		}
 	}
 }
-
-# Afari - Ancient Battlefield 3
 unique_system_initializer_06 = {
 	name = "NAME_Unique_System_6"
 
@@ -946,7 +940,7 @@ unique_system_initializer_06 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -1159,8 +1153,6 @@ unique_system_initializer_06 = {
 		}
 	}
 }
-
-# Tragula's Cross - Triple Planet 1
 unique_system_initializer_07 = {
 	name = "NAME_Unique_System_7"
 
@@ -1180,7 +1172,7 @@ unique_system_initializer_07 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -1380,8 +1372,6 @@ unique_system_initializer_07 = {
 		}
 	}
 }
-
-# Trin's Promise - Triple Planet 2
 unique_system_initializer_08 = {
 	name = "NAME_Unique_System_8"
 
@@ -1401,7 +1391,7 @@ unique_system_initializer_08 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -1584,8 +1574,6 @@ unique_system_initializer_08 = {
 		}
 	}
 }
-
-# Loh - Triple Planet 3
 unique_system_initializer_09 = {
 	name = "NAME_Unique_System_9"
 
@@ -1605,7 +1593,7 @@ unique_system_initializer_09 = {
 		}
 	}
 
-	spawn_chance = @unique_system_spawn_chance
+	spawn_chance = 100
 
 	max_instances = 1
 
@@ -1730,150 +1718,6 @@ unique_system_initializer_09 = {
 				prevent_anomaly = yes
 				clear_deposits = yes
 			}
-		}
-	}
-}
-
-# Lone Defender
-lone_defender = {
-	name = "NAME_Lone_Defender_system"
-	class = sc_g
-	usage = misc_system_init
-
-	usage_odds = {
-		base = @spawn_system_slightlycommon
-		inline_script = "solar_system_initializers/initializer_modifiers_habitable_world_systems"
-	}
-	max_instances = 1
-
-	flags = { unique_system lone_defender_system }
-
-	planet = {
-		class = star
-		orbit_distance = 0
-		flags = { lone_defender_star }
-	}
-	planet = {
-		name = "NAME_Lone_Defender_planet"
-		class = pc_nuked
-
-		orbit_distance = 90
-		orbit_angle = 1
-		size = 20
-		has_ring = no
-
-		flags = { lone_defender_planet }
-
-		moon = {
-			class = pc_broken
-			size = 7
-			flags = { lone_defender_moon }
-			orbit_angle = 0
-			init_effect = {
-				create_ambient_object = {
-					type = "small_debris_object"
-					entity_offset_height = -16
-					location = this
-				}
-				last_created_ambient_object = {
-					set_location = {
-						target = prev
-						angle = 0
-					}
-				}
-			}
-		}
-		init_effect = {
-			save_event_target_as = lone_defender_planet
-			prevent_anomaly = yes
-
-			create_country = {
-				name = "NAME_Lone_Defender_country"
-				type = faction
-			}
-			last_created_country = {
-				set_country_flag = lone_defender_country
-
-				create_fleet = {
-					name = "NAME_Lone_Defender_fleet"
-					settings = { spawn_debris = no }
-					effect = {
-						set_owner = PREV
-						set_fleet_flag = lone_defender_fleet
-						create_ship = {
-							name = "NAME_Lone_Defender_ship"
-							design = "NAME_Lone_Defender_class"
-							graphical_culture = "mammalian_01"
-							effect = {
-								set_ship_flag = lone_defender_ship
-							}
-						}
-						set_location = event_target:lone_defender_planet
-						set_fleet_stance = aggressive
-						set_aggro_range_measure_from = return_point
-						set_aggro_range = 100
-
-						queue_actions = {
-							repeat = {
-								find_closest_planet  = {
-									trigger = {
-										id = lone_defender.patrol.2
-										has_planet_flag = lone_defender_planet
-									}
-									found_planet = {
-										move_to = this
-										orbit_planet = this
-										wait = {
-											duration = 30
-										}
-									}
-								}
-								find_closest_planet  = {
-									trigger = {
-										id = lone_defender.patrol.3
-										has_planet_flag = lone_defender_moon
-									}
-									found_planet = {
-										move_to = this
-										orbit_planet = this
-										wait = {
-											duration = 30
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	asteroid_belt = {
-		type = rocky_asteroid_belt
-		radius = 135
-	}
-	asteroid_belt = {
-		type = rocky_asteroid_belt
-		radius = 140
-	}
-	planet = {
-		class = "pc_asteroid"
-		orbit_distance = 50
-		orbit_angle = 90
-		size = 5
-		has_ring = no
-		init_effect = {
-			set_deposit = d_minerals_5
-		}
-	}
-	planet = {
-		class = "pc_asteroid"
-		orbit_distance = 0
-		orbit_angle = 180
-		size = 5
-		has_ring = no
-		init_effect = {
-			set_deposit = d_minerals_5
 		}
 	}
 }
