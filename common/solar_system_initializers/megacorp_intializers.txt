@@ -1,14 +1,17 @@
-# Unique Systems Guaranteed — per-key guarantee override (4.4 re-architecture).
-# Redefines ONLY the unique/special galaxy-generation systems this mod guarantees,
-# forcing spawn_chance = 100 (replacing vanilla's spawn_chance / scaled_spawn_chance gate).
-# Every other system — including ones added by future patches/DLCs — passes through
-# from current vanilla untouched. Loads after vanilla (zzz_ prefix) to override by key.
+# Unique Systems Guaranteed — full-file override (4.4 re-sync).
+# Stellaris loads solar_system_initializers via a loader that does NOT override by
+# key from a separate file (it keeps the first/vanilla definition), so the whole
+# vanilla file must be replaced under its original name. This is a copy of the
+# CURRENT vanilla file with spawn_chance forced to 100 on the guaranteed systems
+# (converting any scaled_spawn_chance). Re-sync from vanilla after major patches.
 
 @base_moon_distance = 10
 @caravaneerfleetlaunch1 = 9000 # 25 years
 @caravaneerfleetlaunch2 = 14400 # 40 years
 @homeworld_min_size = 18
 @homeworld_max_size = 21
+
+# Caravaneers
 megacorp_caravaneer_init = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -619,6 +622,8 @@ megacorp_caravaneer_init = {
 		}
 	}
 }
+
+# Ruined Matter Decompressor
 megacorp_matter_decompressor_init_01 = {
 	class = sc_black_hole
 	usage = misc_system_init
@@ -706,6 +711,8 @@ megacorp_matter_decompressor_init_01 = {
 		}
 	}
 }
+
+# Ruined Strategic Coordination Center
 megacorp_strategic_coordination_center_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -1069,6 +1076,8 @@ megacorp_strategic_coordination_center_init_01 = {
 		}
 	}
 }
+
+# Ruined Mega Art Installation
 megacorp_mega_art_installation_init_01 = {
 	class = "rl_trinary_stars"
 
@@ -1173,6 +1182,9 @@ megacorp_mega_art_installation_init_01 = {
 		}
 	}
 }
+
+# Ruined Interstellar Assembly
+# (a former capital system)
 megacorp_interstellar_assembly_init_01 = {
 	class = "rl_starting_stars"
 	asteroid_belt = {

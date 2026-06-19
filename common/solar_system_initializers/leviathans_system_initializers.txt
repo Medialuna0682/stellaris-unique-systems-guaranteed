@@ -1,10 +1,19 @@
-# Unique Systems Guaranteed — per-key guarantee override (4.4 re-architecture).
-# Redefines ONLY the unique/special galaxy-generation systems this mod guarantees,
-# forcing spawn_chance = 100 (replacing vanilla's spawn_chance / scaled_spawn_chance gate).
-# Every other system — including ones added by future patches/DLCs — passes through
-# from current vanilla untouched. Loads after vanilla (zzz_ prefix) to override by key.
+# Unique Systems Guaranteed — full-file override (4.4 re-sync).
+# Stellaris loads solar_system_initializers via a loader that does NOT override by
+# key from a separate file (it keeps the first/vanilla definition), so the whole
+# vanilla file must be replaced under its original name. This is a copy of the
+# CURRENT vanilla file with spawn_chance forced to 100 on the guaranteed systems
+# (converting any scaled_spawn_chance). Re-sync from vanilla after major patches.
+
+# Game will first pick an initializer using usage_odds, but only use it if it passes the spawn_chance check
+# Even if it fails the spawn_chance check it will still count towards the initializer's max_instances
 
 @base_moon_distance = 10
+
+# Leviathans DLC System Initializers
+
+### ENCLAVES ###
+# Artists
 guardians_artist_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -195,6 +204,8 @@ guardians_artist_init_01 = {
 		###
 	}
 }
+
+# Artists II
 guardians_artist_init_02 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -384,6 +395,8 @@ guardians_artist_init_02 = {
 		###
 	}
 }
+
+# Artists III
 guardians_artist_init_03 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -573,6 +586,8 @@ guardians_artist_init_03 = {
 		###
 	}
 }
+
+# Curators I
 guardians_curator_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -722,6 +737,8 @@ guardians_curator_init_01 = {
 		size = { min = 10 max = 25 }
 	}
 }
+
+# Curators II
 guardians_curator_init_02 = {
 	class = sc_black_hole
 	usage = misc_system_init
@@ -866,6 +883,8 @@ guardians_curator_init_02 = {
 		}
 	}
 }
+
+# Curators III
 guardians_curator_init_03 = {
 	class = sc_pulsar
 	usage = misc_system_init
@@ -1038,6 +1057,8 @@ guardians_curator_init_03 = {
 		size = 40
 	}
 }
+
+# Traders
 guardians_trader_init_01 = {
 	class = "rl_standard_stars"
 
@@ -1180,6 +1201,8 @@ guardians_trader_init_01 = {
 		}
 	}
 }
+
+# Traders
 guardians_trader_init_02 = {
 	class = "rl_standard_stars"
 
@@ -1323,6 +1346,8 @@ guardians_trader_init_02 = {
 		}
 	}
 }
+
+# Traders
 guardians_trader_init_03 = {
 	class = "rl_standard_stars"
 
@@ -1466,6 +1491,11 @@ guardians_trader_init_03 = {
 		}
 	}
 }
+
+### END OF: ENCLAVES ###
+
+### GUARDIANS SYSTEM ###
+# Stellarites
 guardians_init_stellarites = {
 	class = rl_dwarf_stars
 	usage = misc_system_init
@@ -1551,6 +1581,8 @@ guardians_init_stellarites = {
 		}
 	}
 }
+
+### Ether Drake
 guardians_init_dragon = {
 	class = sc_k
 
@@ -1720,6 +1752,8 @@ guardians_init_dragon = {
 		}
 	}
 }
+
+# Dimensional Horror
 guardians_init_horror = {
 	class = "sc_black_hole"
 	usage = misc_system_init
@@ -1757,6 +1791,8 @@ guardians_init_horror = {
 		has_ring = no
 	}
 }
+
+# Automated Dreadnought
 guardians_init_dreadnought = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -2081,6 +2117,8 @@ guardians_init_dreadnought = {
 		flags = { patrol_8 }
 	}
 }
+
+# Hive
 guardians_init_hive = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -2254,6 +2292,8 @@ guardians_init_hive = {
 		orbit_angle = { min = 90 max = 270 }
 	}
 }
+
+#Technosphere
 guardians_init_technosphere = {
 	name = "NAME_Gargantua"
 	class = sc_black_hole
@@ -2360,6 +2400,8 @@ guardians_init_technosphere = {
 		}
 	}
 }
+
+### Enigmatic Fortress
 guardians_init_fortress = {
 	class = sc_a
 
@@ -2598,6 +2640,8 @@ guardians_init_fortress = {
 
 	}
 }
+
+# Wraith
 guardians_init_wraith = {
 	class = "sc_pulsar"
 

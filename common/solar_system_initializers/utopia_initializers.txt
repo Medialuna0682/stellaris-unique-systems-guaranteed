@@ -1,10 +1,15 @@
-# Unique Systems Guaranteed — per-key guarantee override (4.4 re-architecture).
-# Redefines ONLY the unique/special galaxy-generation systems this mod guarantees,
-# forcing spawn_chance = 100 (replacing vanilla's spawn_chance / scaled_spawn_chance gate).
-# Every other system — including ones added by future patches/DLCs — passes through
-# from current vanilla untouched. Loads after vanilla (zzz_ prefix) to override by key.
+# Unique Systems Guaranteed — full-file override (4.4 re-sync).
+# Stellaris loads solar_system_initializers via a loader that does NOT override by
+# key from a separate file (it keeps the first/vanilla definition), so the whole
+# vanilla file must be replaced under its original name. This is a copy of the
+# CURRENT vanilla file with spawn_chance forced to 100 on the guaranteed systems
+# (converting any scaled_spawn_chance). Re-sync from vanilla after major patches.
+
+# Utopia Initializers
 
 @base_moon_distance = 10
+
+# Ruined Dyson Sphere
 dyson_sphere_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -344,6 +349,8 @@ dyson_sphere_init_01 = {
 		}
 	}
 }
+
+# Ruined Science Nexus
 science_nexus_init_01 = {
 	class = sc_black_hole
 	usage = misc_system_init
@@ -445,6 +452,8 @@ science_nexus_init_01 = {
 		}
 	}
 }
+
+# Ruined Sentry Array
 sentry_array_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -812,6 +821,8 @@ sentry_array_init_01 = {
 		}
 	}
 }
+
+# Ruined Ring World
 ring_world_init_01 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
@@ -1012,3 +1023,4 @@ ring_world_init_01 = {
 		}
 	}
 }
+
